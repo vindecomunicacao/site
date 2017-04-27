@@ -7,6 +7,7 @@ use App\Http\Requests\Controle\UsuarioRequest;
 use App\Usuario;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Mockery\CountValidator\Exception;
 
 
 class UsuarioController extends Controller
@@ -22,9 +23,10 @@ class UsuarioController extends Controller
 
     public function editar(Usuario $usuario = null)
     {
+
         $data = ['grupos'];
 
-        $grupos = GrupoUsuario::orderBy('nome', 'asc')->get()->lists('nome','id')->toArray();
+        $grupos = GrupoUsuario::where('id', '<>', 1)->orderBy('id', 'asc')->get()->lists('nome','id')->toArray();
 
         if (isset($usuario->id)) {
             $this->verificaPermissao('usuario.alterar');
@@ -32,7 +34,8 @@ class UsuarioController extends Controller
         }
         else
         {
-            $this->verificaPermissao('usuario.cadastrar');
+            //Comentado para dar liberdade de todos os membros cadastrarem-se
+            //$this->verificaPermissao('usuario.cadastrar');
         }
 
         return view('controle.usuario.edit', compact($data));
@@ -52,9 +55,22 @@ class UsuarioController extends Controller
             }
 
         } else {
-            $this->verificaPermissao('usuario.cadastrar');
-            $usuario = Usuario::create($input);
-            return redirect()->route('controle.usuario.index')->with('error', false);
+            /*
+              //Comentado para dar liberdade de todos os membros cadastrarem-se
+              $this->verificaPermissao('usuario.cadastrar');
+              $usuario = Usuario::create($input);
+              return redirect()->route('controle.usuario.index')->with('error', false);
+             */
+
+            try {
+                $data = $request->all();
+                $data['password'] = bcrypt($data['password']);
+
+                $user = Usuario::create($data);
+                return view('controle.usuario.edit', compact('user'));
+            } catch (Exception $e){
+                return redirect('/cadastromembros')->withInputs($request->all())->withErrors(["Falha ao Cadastrar"]);
+            }
         }
 
         if (!$usuario->id) {

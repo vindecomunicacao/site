@@ -10,7 +10,7 @@ class GrupoUsuario extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['nome', 'texto'];
+    protected $fillable = ['id', 'nome', 'texto'];
 
     public function permissao()
     {
