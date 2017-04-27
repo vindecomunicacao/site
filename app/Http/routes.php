@@ -39,9 +39,8 @@ Route::get('loga', function() {
     Auth::loginUsingId(1);
 });
 
-Route::get('cadastromembro/{usuario?}', 'Controle\UsuarioController@editar');
-
-Route::post('cadastromembro/salvar/{usuario?}', 'Controle\UsuarioController@salvar');
+Route::get('cadastro', 'Controle\UsuarioController@editar');
+Route::post('cadastro/salvar', 'Controle\UsuarioController@salvar');
 
 Route::group(['prefix' => 'controle', 'middleware' => 'auth'], function() {
 

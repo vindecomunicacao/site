@@ -59,7 +59,7 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{ url('/cadastromembros') }}">
+                <a class="navbar-brand" href="{{ url('/cadastro') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
             </div>
@@ -85,7 +85,7 @@
                                             Muito obrigado por ter se cadastrado, Deus seja com você por onde fores! Amém.
                                         </p>
                                         <p>
-                                            <a class="btn btn-primary btn-large" href="{{ url('/cadastromembro') }}">Novo Cadastro</a>
+                                            <a class="btn btn-primary btn-large" href="{{ url('/cadastro') }}">Novo Cadastro</a>
                                         </p>
                                     </div>
                                 </div>
@@ -132,7 +132,7 @@
                     @endif
                     <div class="row">
                         <div class="col-md-12">
-                            <form role="form" class="form-horizontal group-border-dashed" method="POST" action="{{ url('/cadastromembro/salvar') }}">
+                            <form role="form" class="form-horizontal group-border-dashed" method="POST" action="{{ url('/cadastro/salvar') }}">
                                 {{ csrf_field() }}
                                 <fieldset>
                                     <legend>Dados de Reconhecimento</legend>
