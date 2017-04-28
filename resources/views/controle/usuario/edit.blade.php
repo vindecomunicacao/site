@@ -60,7 +60,7 @@
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{ url('/cadastro') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Vinde') }}
                 </a>
             </div>
         </div>
@@ -299,7 +299,7 @@
                                         <label class="control-label col-sm-1 col-sm-offset-1" for="cursoEscolaridadeID">Curso</label>
                                         <div class="col-sm-5">
                                             <input type="text" name="cursoEscolaridade" value="{{ old("cursoEscolaridade") }}" class="form-control"
-                                                   id="cursoEscolaridadeID" required />
+                                                   id="cursoEscolaridadeID" required disabled />
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -698,13 +698,13 @@
 <!-- Scripts -->
 <script type="application/javascript" src="/library/jquery.min.js"></script>
 <script type="application/javascript" src="/library/bootstrap.min.js"></script>
-<script type="application/javascript" src="/library/jquery.maskedinput.min.js"></script>
+<script type="application/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function (document_ready) {
 
-        $("#cpfID").mask('999.999.999-99', {reverse: true});
-        $("#celularID, #celularWhatsappID").mask('(99) 99999-9999');
-        $("#cepEnderecoID").mask('99999-999');
+        $("#cpfID").mask('000.000.000-00', {clearIfNotMatch: true});
+        $("#celularID, #celularWhatsappID").mask('(00) 00000-0000', {clearIfNotMatch: true});
+        $("#cepEnderecoID").mask('00000-000', {clearIfNotMatch: true});
 
         $("#filhosID").on("change", function (filhosID_change) {
             $('#numeroFilhosID').attr('disabled', $(this).is(":not(:checked)")).attr("required", $(this).is(":checked"));
@@ -715,7 +715,8 @@
         }).change();
 
         $("#escolaridadeID").on("change", function (filhosID_change) {
-            $('#cursoEscolaridadeID').attr('disabled', ['1', '2'].indexOf($(this).val()) != -1).attr("required", ['1', '2'].indexOf($(this).val()) == -1);
+            var isDisabled = ['3', '4', '5', '6', '7', '8', '9'].indexOf($(this).val()) == -1;
+            $('#cursoEscolaridadeID').attr('disabled', isDisabled).attr("required", isDisabled);
         }).change();
 
         $("#doadorSangueID").on("change", function (filhosID_change) {
@@ -760,6 +761,12 @@
 
         $("#passwordID").on("blur", function (filhosID_change) {
             $('#passwordConfirmeID').attr('pattern', $(this).val());
+        });
+
+        $(".form-horizontal").on("submit", function(form_horizontal_submit){
+            $("#cpfID").mask('999.999.999-99', {reverse: true});
+            $("#celularID, #celularWhatsappID").mask('(99) 99999-9999');
+            $("#cepEnderecoID").mask('(99) 99999-9999');
         });
 
         $("#cepEnderecoID").on("blur", function (cepEnderecoID_blur) {
