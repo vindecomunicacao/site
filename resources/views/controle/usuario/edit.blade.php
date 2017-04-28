@@ -75,7 +75,7 @@
                             <div class="jumbotron">
                                 <div class="row">
                                     <div class="col-md-3 col-sm-6">
-                                        <img src="/images/logo_vinde.png" />
+                                        <img src="/logos/NOVA-LOGO-VINDE.png" />
                                     </div>
                                     <div class="col-md-9 col-sm-6">
                                         <h2>
@@ -98,7 +98,7 @@
                             <div class="jumbotron">
                                 <div class="row">
                                     <div class="col-md-3 col-sm-6">
-                                        <img src="/images/logo_vinde.png" />
+                                        <img src="/logos/NOVA-LOGO-VINDE.png" />
                                     </div>
                                     <div class="col-md-9 col-sm-6">
                                         <h2>
@@ -140,7 +140,7 @@
                                         <label class="control-label col-sm-2" for="grupo_usuario_idID">Grupo de Usuário</label>
                                         <div class="col-sm-4">
                                             <select name="grupo_usuario_id" class="form-control" id="grupo_usuario_idID" required>
-                                                <option {{ old("grupo_usuario_id") == null ? 'selected' : '' }} value>Selecione</option>
+                                                <option value>Selecione</option>
                                                 @foreach($grupos as $id => $grupo)
                                                     <option {{ !in_array($id, [2, 3]) ? 'disabled' : '' }} {{ old("grupo_usuario_id") == $id ? 'selected' : '' }} value="{{ $id }}">{{ $grupo }}</option>
                                                 @endforeach
@@ -184,7 +184,7 @@
                                         <label class="control-label col-sm-2" for="estadoCivilID">Estado Civil</label>
                                         <div class="col-sm-3">
                                             <select name="estadoCivil" class="form-control" id="estadoCivilID" required>
-                                                <option {{ old("estadoCivil") == null ? 'selected' : '' }} value>Selecione</option>
+                                                <option value>Selecione</option>
                                                 <option {{ old("estadoCivil") == "1" ? 'selected' : '' }} value="1">Solteiro (a)</option>
                                                 <option {{ old("estadoCivil") == "2" ? 'selected' : '' }} value="2">Casado (a)</option>
                                                 <option {{ old("estadoCivil") == "3" ? 'selected' : '' }} value="3">Divorciado (a)</option>
@@ -269,7 +269,7 @@
                                             (média)</label>
                                         <div class="col-sm-3">
                                             <select name="rendaFamiliar" class="form-control" id="rendaFamiliarID" required>
-                                                <option {{ old("rendaFamiliar") == null ? 'selected' : '' }} value>Selecione</option>
+                                                <option value>Selecione</option>
                                                 <option {{ old("rendaFamiliar") == "1" ? 'selected' : '' }} value="1">Desejo não Responder</option>
                                                 <option {{ old("rendaFamiliar") == "2" ? 'selected' : '' }} value="2">Menor que 1 Sálario</option>
                                                 <option {{ old("rendaFamiliar") == "3" ? 'selected' : '' }} value="3">1 Sálario Mínimo</option>
@@ -283,7 +283,7 @@
                                         <label class="control-label col-sm-1" for="escolaridadeID">Escolaridade</label>
                                         <div class="col-sm-4">
                                             <select name="escolaridade" class="form-control" id="escolaridadeID" required>
-                                                <option {{ old("escolaridade") == null ? 'selected' : '' }} value>Selecione</option>
+                                                <option value>Selecione</option>
                                                 <option {{ old("escolaridade") == "1" ? 'selected' : '' }} value="1">ENSINO FUNDAMENTAL</option>
                                                 <option {{ old("escolaridade") == "2" ? 'selected' : '' }} value="2">ENSINO MÉDIO</option>
                                                 <option {{ old("escolaridade") == "3" ? 'selected' : '' }} value="3">ENSINO PROFISSIONALIZANTE</option>
@@ -488,7 +488,7 @@
                                         <label class="control-label col-sm-2" for="papelCorpoCristoID">Qual seu papel no corpo de cristo?</label>
                                         <div class="col-sm-2">
                                             <select name="papelCorpoCristo" class="form-control" id="papelCorpoCristoID" disabled>
-                                                <option {{ old("papelCorpoCristo") == null ? 'selected' : '' }} value>Selecione</option>
+                                                <option value>Selecione</option>
                                                 <option {{ old("papelCorpoCristo") == "1" ? 'selected' : '' }} value="1">Profeta</option>
                                                 <option {{ old("papelCorpoCristo") == "2" ? 'selected' : '' }} value="2">Mestre</option>
                                                 <option {{ old("papelCorpoCristo") == "3" ? 'selected' : '' }} value="3">Apóstolo</option>
@@ -520,7 +520,7 @@
                                         <label class="control-label col-sm-2" for="escolaDiscipulosID">Participa da Escola de Discipulos?</label>
                                         <div class="col-sm-2">
                                             <select name="escolaDiscipulos" class="form-control" id="escolaDiscipulosID" required>
-                                                <option {{ old("escolaDiscipulos") == null ? 'selected' : '' }} value>Selecione</option>
+                                                <option value>Selecione</option>
                                                 <option {{ old("escolaDiscipulos") == "1" ? 'selected' : '' }} value="1">Sim, estou cursando</option>
                                                 <option {{ old("escolaDiscipulos") == "2" ? 'selected' : '' }} value="2">Não curso</option>
                                                 <option {{ old("escolaDiscipulos") == "3" ? 'selected' : '' }} value="3">Já sou formado</option>
@@ -763,46 +763,45 @@
             $('#passwordConfirmeID').attr('pattern', $(this).val());
         });
 
-        $(".form-horizontal").on("submit", function(form_horizontal_submit){
-            $("#cpfID").mask('999.999.999-99', {reverse: true});
-            $("#celularID, #celularWhatsappID").mask('(99) 99999-9999');
-            $("#cepEnderecoID").mask('(99) 99999-9999');
-        });
-
         $("#cepEnderecoID").on("blur", function (cepEnderecoID_blur) {
             if (typeof changeHiddenType != 'function')
                 function changeHiddenType(type) {
-                    $("#enderecoID").attr("type", type).val(null).prev("p").toggle(type == 'hidden');
-                    $("#bairroEnderecoID").attr("type", type).val(null).prev("p").toggle(type == 'hidden');
-                    $("#cidadeEnderecoID").attr("type", type).val(null).prev("p").toggle(type == 'hidden');
-                    $("#ufEnderecoID").attr("type", type).val(null).prev("p").toggle(type == 'hidden');
+                    $("#enderecoID").attr("type", type).val(null).prev("p").html(null).toggle(type == 'hidden');
+                    $("#bairroEnderecoID").attr("type", type).val(null).prev("p").html(null).toggle(type == 'hidden');
+                    $("#cidadeEnderecoID").attr("type", type).val(null).prev("p").html(null).toggle(type == 'hidden');
+                    $("#ufEnderecoID").attr("type", type).val(null).prev("p").html(null).toggle(type == 'hidden');
                 }
 
             changeHiddenType("hidden");
             pHelpCepEnderecoID = $("#cepEnderecoID").next("p").hide();
-            $.getJSON("http://correiosapi.apphb.com/cep/".concat($(this).val()))
-                    .done(function (result) {
-                        if (!$.isEmptyObject(result)) {
-                            var endereco = result.tipoDeLogradouro.concat(" ").concat(result.logradouro).trim();
-                            $("#enderecoID").val(endereco).prev("p").html(endereco);
+            var cep = $(this).val().replace(/[^\d]/g, "");
+            if(!$.isEmptyObject(cep)) {
+                $.ajax({
+                    dataType: "json",
+                    url: "http://republicavirtual.com.br/web_cep.php?cep=".concat(cep).concat("&formato=json")
+                }).done(function (result) {
+                    if (result.resultado == "1") {
+                        var endereco = result.tipo_logradouro.concat(" ").concat(result.logradouro).trim();
+                        $("#enderecoID").val(endereco).prev("p").html(endereco);
 
-                            var bairro = result.bairro;
-                            $("#bairroEnderecoID").val(bairro).prev("p").html(bairro);
+                        var bairro = result.bairro;
+                        $("#bairroEnderecoID").val(bairro).prev("p").html(bairro);
 
-                            var cidade = result.cidade;
-                            $("#cidadeEnderecoID").val(cidade).prev("p").html(cidade);
+                        var cidade = result.cidade;
+                        $("#cidadeEnderecoID").val(cidade).prev("p").html(cidade);
 
-                            var uf = result.estado;
-                            $("#ufEnderecoID").val(uf).prev("p").html(uf);
-                        } else {
-                            pHelpCepEnderecoID.html("CEP não encontrado").show();
-                            changeHiddenType("text");
-                        }
-                    })
-                    .fail(function (error) {
-                        pHelpCepEnderecoID.html("Erro ao buscar o CEP").show();
+                        var uf = result.uf;
+                        $("#ufEnderecoID").val(uf).prev("p").html(uf);
+                    } else {
+                        pHelpCepEnderecoID.html("CEP não encontrado").show();
                         changeHiddenType("text");
-                    });
+                    }
+                })
+                .fail(function (error) {
+                    pHelpCepEnderecoID.html("Erro ao buscar o CEP").show();
+                    changeHiddenType("text");
+                });
+            }
         });
     });
 </script>
