@@ -39,6 +39,9 @@ Route::get('loga', function() {
     Auth::loginUsingId(1);
 });
 
+Route::get('cadastro', 'Controle\UsuarioController@editar');
+Route::post('cadastro/salvar', 'Controle\UsuarioController@salvar');
+
 Route::group(['prefix' => 'controle', 'middleware' => 'auth'], function() {
 
     Route::get('auth/logout', [
@@ -82,7 +85,7 @@ Route::group(['prefix' => 'controle', 'middleware' => 'auth'], function() {
         'as' => 'controle.usuario.index',
         'uses' => 'Controle\UsuarioController@index'
     ]);
-
+/*
     Route::get('usuario/editar/{usuario?}', [
         'as' => 'controle.usuario.edit',
         'uses' => 'Controle\UsuarioController@editar'
@@ -92,7 +95,7 @@ Route::group(['prefix' => 'controle', 'middleware' => 'auth'], function() {
         'as' => 'controle.usuario.salvar',
         'uses' => 'Controle\UsuarioController@salvar'
     ]);
-
+*/
     Route::get('usuario/excluir/{usuario?}', [
         'as' => 'controle.usuario.excluir',
         'uses' => 'Controle\UsuarioController@excluir'
