@@ -14,7 +14,7 @@
 
                 <div class="x_content">
                     <p>Total de registros encontrados: {{ $usuarios->count() }}</p>
-
+                    @if($usuarios->count())
                     <table class="table table-striped responsive-utilities jambo_table bulk_action">
                         <thead>
                         <tr class="headings">
@@ -40,6 +40,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>

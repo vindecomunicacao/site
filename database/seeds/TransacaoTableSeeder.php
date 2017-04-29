@@ -79,67 +79,33 @@ class TransacaoTableSeeder extends Seeder
             'permissao' => 'log.visualizar',
             'label' => 'Visualizar'
         ]);
-        #contato
-        Transacao::create([
-            'categoria_id' => 5,
-            'permissao' => 'contato.alterar',
-            'label' => 'Alterar'
-        ]);
-        Transacao::create([
-            'categoria_id' => 5,
-            'permissao' => 'contato.excluir',
-            'label' => 'Excluir'
-        ]);
 
-        # Galeria
+        # Cliente        
         Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'galeria.visualizar',
+            'categoria_id' => 14,
+            'permissao' => 'cliente.visualizar',
             'label' => 'Visualizar'
         ]);
+        
         Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'galeria.cadastrar',
+            'categoria_id' => 14,
+            'permissao' => 'cliente.cadastrar',
             'label' => 'Cadastrar'
         ]);
+        
         Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'galeria.alterar',
+            'categoria_id' => 14,
+            'permissao' => 'cliente.alterar',
             'label' => 'Alterar'
         ]);
+        
         Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'imagem.excluir',
-            'label' => 'Excluir Imagem'
-        ]);
-        Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'galeria.excluir',
-            'label' => 'Excluir'
-        ]);
-
-        # Banner 
-        Transacao::create([
-            'categoria_id' => 7,
-            'permissao' => 'banner.visualizar',
-            'label' => 'Visualizar'
-        ]);
-        Transacao::create([
-            'categoria_id' => 7,
-            'permissao' => 'banner.cadastrar',
-            'label' => 'Cadastrar'
-        ]);
-        Transacao::create([
-            'categoria_id' => 7,
-            'permissao' => 'banner.alterar',
-            'label' => 'Alterar'
-        ]);
-        Transacao::create([
-            'categoria_id' => 7,
-            'permissao' => 'banner.excluir',
+            'categoria_id' => 14,
+            'permissao' => 'cliente.excluir',
             'label' => 'Excluir'
         ]);
         ##NOVATRANSACAO##
+
 
         $transacoes = Transacao::select('id')->get()->lists('id')->toArray();
         GrupoUsuario::find(1)->permissao()->sync($transacoes);

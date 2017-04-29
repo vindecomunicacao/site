@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Controle;
 
 use App\Celula;
 use App\Http\Controllers\Controller;
+use App\Rede;
 use App\Upload;
+use App\Usuario;
 use Illuminate\Http\Request;
 
 
@@ -14,7 +16,7 @@ class CelulaController extends Controller
     {
         $this->destino = [
             'caminho' => storage_path() . '/data/celula/', ##criar pasta se tiver upload
-            'resolucao' => [0 => [150,100], 1 => [600,400], 2 => [980,840]],
+            'resolucao' => [0 => [150, 100], 1 => [600, 400], 2 => [980, 840]],
         ];
     }
 
@@ -28,16 +30,17 @@ class CelulaController extends Controller
 
     public function editar(Celula $celula = null)
     {
-        $data = [];
+        $data = ['redes','lideres'];
+
+        $redes = Rede::orderBy('nome','asc')->get()->lists('nome', 'id')->toArray();
+        $lideres = Usuario::orderBy('nome','asc')->get()->lists('nome', 'id')->toArray();
 
         if (isset($celula->id)) {
             $this->verificaPermissao('celula.alterar');
-        array_push($data, 'celula');
-    }
-else
-{
-$this->verificaPermissao('celula.cadastrar');
-}
+            array_push($data, 'celula');
+        } else {
+            $this->verificaPermissao('celula.cadastrar');
+        }
 
         return view('controle.celula.edit', compact($data));
     }
@@ -46,20 +49,20 @@ $this->verificaPermissao('celula.cadastrar');
     {
         $input = $request->except('_token');
 
-        if($request->hasFile('imagem')) {
+        if ($request->hasFile('imagem')) {
             $imagem = $request->file();
             $input['imagem'] = Upload::salva($imagem, $this->destino, false);
         }
 
         if ($celula->id) {
-        $this->verificaPermissao('celula.alterar');
-        if ($celula->update($input)) {
+            $this->verificaPermissao('celula.alterar');
+            if ($celula->update($input)) {
                 return redirect()->route('controle.celula.index')->with('error', false);
-    }
+            }
 
         } else {
-    $this->verificaPermissao('celula.cadastrar');
-    $celula = Celula::create($input);
+            $this->verificaPermissao('celula.cadastrar');
+            $celula = Celula::create($input);
             return redirect()->route('controle.celula.index')->with('error', false);
         }
 
@@ -70,16 +73,16 @@ $this->verificaPermissao('celula.cadastrar');
     }
 
     public function excluir(Celula $celula)
-{
-    $this->verificaPermissao('celula.excluir');
+    {
+        $this->verificaPermissao('celula.excluir');
 
-    if ($celula and $celula->delete()) {
-    $imagem = $celula->imagem;
-    @unlink($this->destino['caminho'] . 'p/' . $imagem);
-    @unlink($this->destino['caminho'] . 'm/' . $imagem);
-    @unlink($this->destino['caminho'] . 'g/' . $imagem);
-    return redirect()->route('controle.celula.index')->with('error', false);
-}
+        if ($celula and $celula->delete()) {
+            $imagem = $celula->imagem;
+            @unlink($this->destino['caminho'] . 'p/' . $imagem);
+            @unlink($this->destino['caminho'] . 'm/' . $imagem);
+            @unlink($this->destino['caminho'] . 'g/' . $imagem);
+            return redirect()->route('controle.celula.index')->with('error', false);
+        }
         return redirect()->route('controle.celula.index')->with('error', true);
     }
 

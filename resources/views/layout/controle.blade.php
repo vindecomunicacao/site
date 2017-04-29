@@ -53,7 +53,7 @@
             <div class="left_col scroll-view">
 
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>MENU</span></a>
+                    <a href="index.html" class="site_title"> <img src="/images/logo-vinde.png" alt=""> </a>
                 </div>
                 <div class="clearfix"></div>
 
@@ -73,7 +73,8 @@
                                     <li><a href="{{ route('controle.noticia.index') }}">Noticia</a></li>
                                     <li><a href="{{ route('controle.agenda.index') }}">Agenda</a></li>
                                     <li><a href="{{ route('controle.rede.index') }}">Rede</a></li>
-                                    <li><a href="{{ route('controle.celula.index') }}">Celula</a></li>
+                                    <li><a href="{{ route('controle.celula.index') }}">Célula</a></li>
+                                    <li><a href="{{ route('controle.artigo.index') }}">Artigo</a></li>
                                     {{--##NOVAOPCAO##--}}
                                 </ul>
                             </li>
@@ -92,7 +93,7 @@
                 <!-- /sidebar menu -->
 
                 <!-- /menu footer buttons -->
-                <div class="sidebar-footer hidden-small">
+                {{--<div class="sidebar-footer hidden-small">
                     <a data-toggle="tooltip" data-placement="top" title="Settings">
                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                     </a>
@@ -105,7 +106,7 @@
                     <a data-toggle="tooltip" data-placement="top" title="Logout">
                         <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
                     </a>
-                </div>
+                </div>--}}
                 <!-- /menu footer buttons -->
             </div>
         </div>
@@ -126,16 +127,15 @@
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                <li><a href="javascript:;">  Profile</a>
-                                </li>
-                                <li>
+                                <li><a href="javascript:;"><i class="fa fa-user pull-right"></i> Dados do perfil</a></li>
+                                {{--<li>
                                     <a href="javascript:;">
                                         <span class="badge bg-red pull-right">50%</span>
                                         <span>Settings</span>
                                     </a>
-                                </li>
+                                </li>--}}
                                 <li>
-                                    <a href="javascript:;">Help</a>
+                                    <a href="javascript:;"><i class="fa fa-lock pull-right"></i> Alterar Senha</a>
                                 </li>
                                 <li><a href="{{ route('controle.logout.index') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                                 </li>
