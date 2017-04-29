@@ -14,7 +14,7 @@ class BannerController extends Controller
     {
         $this->destino = [
             'caminho' => storage_path() . '/data/banner/', ##criar pasta se tiver upload
-            'resolucao' => [0 => [150,50], 1 => [600,200], 2 => [980,333]],
+            'resolucao' => [0 => [384,116], 1 => [640,194], 2 => [1920,580]],
         ];
     }
 

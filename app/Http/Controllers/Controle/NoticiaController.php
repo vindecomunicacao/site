@@ -14,7 +14,7 @@ class NoticiaController extends Controller
     {
         $this->destino = [
             'caminho' => storage_path() . '/data/noticia/', ##criar pasta se tiver upload
-            'resolucao' => [0 => [150,100], 1 => [600,400], 2 => [980,840]],
+            'resolucao' => [0 => [150,150], 1 => [600,350], 2 => [900,500]],
         ];
     }
 

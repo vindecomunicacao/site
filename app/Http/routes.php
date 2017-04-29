@@ -1,5 +1,6 @@
 <?php
 
+
 #RENDERIZA IMAGENS DO STORAGE
 
 
@@ -23,7 +24,24 @@ Route::get('image/{path}/{tamanho}/{imagem}', [
     return view('welcome');
 });*/
 
-Route::get('/', function() { return '<h1>HOME</h1>'; });
+######################################## SITE ###########################################
+
+Route::get('/', [
+    'as' => 'site.home.index',
+    'uses' => 'Site\IndexController@index'
+]);
+
+Route::get('noticia', [
+    'as' => 'site.noticia.index',
+    'uses' => 'Site\NoticiaController@index'
+]);
+
+Route::get('noticia/detalhe/{noticia?}', [
+    'as' => 'site.noticia.detalhe',
+    'uses' => 'Site\NoticiaController@detalhe'
+]);
+
+#########################################################################################
 
 Route::get('auth/login', [
     'as' => 'controle.login.index',
