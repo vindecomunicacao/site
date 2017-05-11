@@ -3,6 +3,7 @@
 namespace App;
 
 //use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use OwenIt\Auditing\AuditingTrait;
@@ -15,7 +16,14 @@ class Usuario extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['nome', 'email', 'password', 'grupo_usuario_id', 'celula_id', 'cpf', 'dataNascimento', 'telefone', 'celular', 'celularWhatsapp', 'estadoCivil', 'slug', 'numeroFilhos', 'rendaFamiliar', 'endereco', 'numeroEndereco', 'cepEndereco', 'bairroEndereco', 'cidadeEndereco', 'ufEndereco', 'escolaridade', 'cursoEscolaridade', 'profissao', 'carro', 'casaPropria', 'moraPais', 'desempregado', 'anosDesempregado', 'planoSaude', 'doadorSangue', 'tipoSanguineo', 'atendimentoEspecial', 'descrisaoAtendimentoEspecial', 'remedioControlado', 'descrisaoRemedioControlado', 'gruposWhatsapp', 'necessidadeBasica', 'dataBatismo', 'saiuOutraIgreja', 'descrisaoSaiuOutraIgreja', 'filantropico', 'grupoFilantropico', 'dizimista', 'encontroComDeus', 'escolaDiscipulos', 'descrisaoEscolaDiscipulos', 'conheceMinisteriosPaulo', 'papelCorpoCristo', 'cristaoComPolitica', 'descrisaoCristaoComPolitica', 'papelIgrejaSociedade', 'formacaoProfissionalParteChamado', 'formacaoAcademicaAliadoChamado', 'estouDispostoServirComMeuTalento', 'vontadeServirEmDepartamento', 'descrisaoVontadeServirEmDepartamento', 'tocaInstrumentos', 'descrisaoTocaInstrumentos', 'propositoDeVidaNaTerra', 'propositoMinisterial', 'motivacaoParaFazerOQueJaFaz', 'atividadesPreferidasParaTempoLivre', 'jesusParaVoce'];
+    protected $fillable = ['grupo_usuario_id', 'nome', 'slug', 'email', 'password', 'dataNascimento', 'dataBatismo', 'celula_id', 'celular', 'celularWhatsapp', 'estadoCivil', 'numeroFilhos', 'endereco', 'numeroEndereco', 'cepEndereco', 'bairroEndereco', 'cidadeEndereco', 'ufEndereco', 'escolaridade', 'cursoEscolaridade', 'profissao', 'desempregado', 'anosDesempregado', 'doadorSangue', 'tipoSanguineo', 'atendimentoEspecial', 'descrisaoAtendimentoEspecial', 'remedioControlado', 'descrisaoRemedioControlado', 'necessidadeBasica', 'saiuOutraIgreja', 'descrisaoSaiuOutraIgreja', 'filantropico', 'grupoFilantropico', 'dizimista', 'encontroComDeus', 'escolaDiscipulos', 'descrisaoEscolaDiscipulos', 'conheceMinisteriosPaulo', 'papelCorpoCristo', 'cristaoComPolitica', 'descrisaoCristaoComPolitica', 'papelIgrejaSociedade', 'formacaoProfissionalParteChamado', 'formacaoAcademicaAliadoChamado', 'estouDispostoServirComMeuTalento', 'vontadeServirEmDepartamento', 'propositoDeVidaNaTerra', 'propositoMinisterial', 'motivacaoParaFazerOQueJaFaz', 'atividadesPreferidasParaTempoLivre', 'jesusParaVoce', 'remember_token', 'departamento_id'];
+
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = ['dataNascimento', 'dataBatismo'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -31,12 +39,31 @@ class Usuario extends Authenticatable
         return $this->belongsTo(GrupoUsuario::class);
     }
 
-//    public function setPasswordAttribute($senha)
-//    {
-//        if($senha) {
-//            $this->attributes['password'] =  bcrypt($senha);
-//        }
-//    }
+    public function setDataBatismoAttribute($dataBatismo)
+    {
+        if (!is_null($dataBatismo)) {
+            $data_formatada = Carbon::createFromFormat('d/m/Y', $dataBatismo);
+            $this->attributes['dataBatismo'] = $data_formatada->format('Y-m-d');
+        }
+    }
 
+    public function getDataBatismoAttribute()
+    {
+        $data_formatada = Carbon::createFromFormat('Y-m-d', $this->attributes['dataBatismo']);
+        return $data_formatada->format('d/m/Y');
+    }
 
+    public function setDataNascimentoAttribute($dataNascimento)
+    {
+        if (!is_null($dataNascimento)) {
+            $data_formatada = Carbon::createFromFormat('d/m/Y', $dataNascimento);
+            $this->attributes['dataNascimento'] = $data_formatada->format('Y-m-d');
+        }
+    }
+
+    public function getDataNascimentoAttribute()
+    {
+        $data_formatada = Carbon::createFromFormat('Y-m-d', $this->attributes['dataNascimento']);
+        return $data_formatada->format('d/m/Y');
+    }
 }
