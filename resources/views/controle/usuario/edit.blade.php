@@ -302,31 +302,31 @@
                                                     required>
                                                 <option value>Selecione</option>
                                                 <option {{ old("escolaridade") == "1" ? 'selected' : '' }} value="1">
-                                                    ENSINO FUNDAMENTAL
+                                                    Ensino Fundamental
                                                 </option>
                                                 <option {{ old("escolaridade") == "2" ? 'selected' : '' }} value="2">
-                                                    ENSINO MÉDIO
+                                                    Ensino Médio
                                                 </option>
                                                 <option {{ old("escolaridade") == "3" ? 'selected' : '' }} value="3">
-                                                    ENSINO PROFISSIONALIZANTE
+                                                    Ensino Profissionalizante
                                                 </option>
                                                 <option {{ old("escolaridade") == "4" ? 'selected' : '' }} value="4">
-                                                    ENSINO SUPERIOR INCOMPLETO
+                                                    Ensino Superior Incompleto
                                                 </option>
                                                 <option {{ old("escolaridade") == "5" ? 'selected' : '' }} value="5">
-                                                    ENSINO SUPERIOR COMPLETO
+                                                    Ensino Superior Completo
                                                 </option>
                                                 <option {{ old("escolaridade") == "6" ? 'selected' : '' }} value="6">
-                                                    ESPECIALIZAÇÃO
+                                                    Especialização
                                                 </option>
-                                                <option {{ old("escolaridade") == "7" ? 'selected' : '' }} value="7">PÓS
-                                                    GRADUAÇÃO
+                                                <option {{ old("escolaridade") == "7" ? 'selected' : '' }} value="7">Pós
+                                                    Graduação
                                                 </option>
                                                 <option {{ old("escolaridade") == "8" ? 'selected' : '' }} value="8">
-                                                    MESTRADO
+                                                    Mestrado
                                                 </option>
                                                 <option {{ old("escolaridade") == "9" ? 'selected' : '' }} value="9">
-                                                    DOUTORADO
+                                                    Doutorado
                                                 </option>
                                             </select>
                                         </div>
@@ -434,33 +434,24 @@
                                         </div>
                                     </div>--}}
                                     <div class="form-group">
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-4">
                                             <div class="checkbox">
                                                 <label for="dizimistaID">
                                                     <input type="checkbox" value="1" name="dizimista"
                                                            {{ old("dizimista") == "1" ? 'checked' : '' }} id="dizimistaID"/>
-                                                    És Dizimista?
+                                                    É Dizimista?
                                                 </label>
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-2 col-sm-offset-2">
+                                        <div class="col-sm-4">
                                             <div class="checkbox">
-                                                <label for="batismoID">
-                                                    <input type="checkbox" value="1" name="batismo"
-                                                           {{ old("batismo") == "1" ? 'checked' : '' }} id="batismoID"/>
-                                                    És Batizado?
+                                                <label for="encontroComDeusID">
+                                                    <input type="checkbox" value="1" name="encontroComDeus"
+                                                           {{ old("encontroComDeus") == "1" ? 'checked' : '' }} id="encontroComDeusID"/>
+                                                    Já participou do Encontro com Deus?
                                                 </label>
                                             </div>
-                                        </div>
-
-                                        <label class="control-label col-sm-2" for="dataBatismoID">Data do
-                                            Batismo</label>
-                                        <div class="col-sm-3">
-                                            <input type="text" name="dataBatismo" value="{{ old("dataBatismo") }}"
-                                                   class="form-control"
-                                                   id="dataBatismoID" disabled/>
-                                            <div class="help-block">Digite somente números</div>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -484,17 +475,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <div class="col-sm-3">
-                                            <div class="checkbox">
-                                                <label for="encontroComDeusID">
-                                                    <input type="checkbox" value="1" name="encontroComDeus"
-                                                           {{ old("encontroComDeus") == "1" ? 'checked' : '' }} id="encontroComDeusID"/>
-                                                    Já participou do Encontro com Deus?
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-4 col-sm-offset-1">
+                                        <div class="col-sm-4">
                                             <div class="checkbox">
                                                 <label for="conheceMinisteriosPauloID">
                                                     <input type="checkbox" value="1" name="conheceMinisteriosPaulo"
@@ -506,7 +487,7 @@
 
                                         <label class="control-label col-sm-2" for="papelCorpoCristoID">Qual seu papel no
                                             corpo de cristo?</label>
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-5">
                                             <select name="papelCorpoCristo" class="form-control" id="papelCorpoCristoID"
                                                     disabled>
                                                 <option value>Selecione</option>
@@ -653,42 +634,6 @@
                                                     Está disposto a servir a Deus com seus Dons e Talentos?
                                                 </label>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-2 text-left" for="papelIgrejaSociedadeID">Qual
-                                            o principal papel da igreja
-                                            na sociedade?</label>
-                                        <div class="col-sm-10">
-                                            <textarea name="papelIgrejaSociedade" class="form-control"
-                                                      id="papelIgrejaSociedadeID">{{ old("papelIgrejaSociedade") }}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-2 text-left" for="propositoDeVidaNaTerraID">Qual
-                                            seu propósito de vida
-                                            nesta Terra?</label>
-                                        <div class="col-sm-10">
-                                            <textarea name="propositoDeVidaNaTerra" class="form-control"
-                                                      id="propositoDeVidaNaTerraID">{{ old("propositoDeVidaNaTerra") }}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-2 text-left" for="propositoMinisterialID">Qual
-                                            seu propósito
-                                            Ministerial?</label>
-                                        <div class="col-sm-10">
-                                            <textarea name="propositoMinisterial" class="form-control"
-                                                      id="propositoMinisterialID">{{ old("propositoMinisterial") }}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-2 text-left"
-                                               for="motivacaoParaFazerOQueJaFazID">O que o motiva a fazer o
-                                            que você faz?</label>
-                                        <div class="col-sm-10">
-                                            <textarea name="motivacaoParaFazerOQueJaFaz" class="form-control"
-                                                      id="motivacaoParaFazerOQueJaFazID">{{ old("motivacaoParaFazerOQueJaFaz") }}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
