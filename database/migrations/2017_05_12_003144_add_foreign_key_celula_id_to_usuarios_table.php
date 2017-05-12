@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class DeleteDataBatismoToUsuariosTable extends Migration
+class AddForeignKeyCelulaIdToUsuariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class DeleteDataBatismoToUsuariosTable extends Migration
     {
         Schema::table('usuarios', function (Blueprint $table)
         {
-            $table->dropColumn('dataBatismo');
+            $table->foreign('celula_id')->references('id')->on('celulas');
         });
     }
 

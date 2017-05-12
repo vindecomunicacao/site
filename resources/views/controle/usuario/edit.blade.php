@@ -395,22 +395,34 @@
                                         <label class="control-label col-sm-2 col-sm-offset-2" for="tipoSanguineoID">Tipo
                                             Sanguineo</label>
                                         <div class="col-sm-2">
-                                            <input type="text" name="tipoSanguineo" value="{{ old("tipoSanguineo") }}"
-                                                   class="form-control"
-                                                   id="tipoSanguineoID" disabled/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-sm-4 text-left" for="necessidadeBasicaID">Hoje,
-                                            qual a sua principal
-                                            necessidade básica de sobrevivência?</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" name="necessidadeBasica"
-                                                   value="{{ old("necessidadeBasica") }}" class="form-control"
-                                                   id="necessidadeBasicaID"/>
-                                            <div class="help-block">Ex: alimento, vestimenta, saúde, emprego, saúde
-                                                emocional, familiar...
-                                            </div>
+                                            <select name="tipoSanguineo" class="form-control" id="tipoSanguineoID"
+                                                    disabled>
+                                                <option value>Selecione</option>
+                                                <option {{ old("tipoSanguineo") == "1" ? 'selected' : '' }} value="1">
+                                                    A +
+                                                </option>
+                                                <option {{ old("tipoSanguineo") == "2" ? 'selected' : '' }} value="2">
+                                                    A -
+                                                </option>
+                                                <option {{ old("tipoSanguineo") == "3" ? 'selected' : '' }} value="3">
+                                                    B +
+                                                </option>
+                                                <option {{ old("tipoSanguineo") == "4" ? 'selected' : '' }} value="4">
+                                                    B -
+                                                </option>
+                                                <option {{ old("tipoSanguineo") == "5" ? 'selected' : '' }} value="5">
+                                                    AB +
+                                                </option>
+                                                <option {{ old("tipoSanguineo") == "6" ? 'selected' : '' }} value="6">
+                                                    AB -
+                                                </option>
+                                                <option {{ old("tipoSanguineo") == "7" ? 'selected' : '' }} value="7">
+                                                    O +
+                                                </option>
+                                                <option {{ old("tipoSanguineo") == "8" ? 'selected' : '' }} value="8">
+                                                    O -
+                                                </option>
+                                            </select>
                                         </div>
                                     </div>
                                 </fieldset>
