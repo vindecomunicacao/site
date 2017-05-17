@@ -1,4 +1,7 @@
 @extends('layout.site')
+@section('styles')
+lll
+@endsection
 @section('conteudo')
     <section class="page-header page-title-left minimal light-bg">
         <div class="container">

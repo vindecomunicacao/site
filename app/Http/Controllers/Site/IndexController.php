@@ -20,4 +20,16 @@ class IndexController extends Controller
         return view('site.home.index', compact($data));
     }
 
+    public function paginaConstrucao()
+    {
+        return view('site.home.paginaconstrucao');
+    }
+
+    public function cadastroNews(Request $request)
+    {
+        return $request['emailnews'];
+    }
+
+
+
 }

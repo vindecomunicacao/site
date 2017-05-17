@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddFieldsToLogTable' => $baseDir . '/database/migrations/2016_05_22_190217_add_fields_to_log_table.php',
+    'AddLinkToBannersTable' => $baseDir . '/database/migrations/2017_04_29_185742_add_link_to_banners_table.php',
     'AddPosicaoToBannersTable' => $baseDir . '/database/migrations/2017_04_29_015656_add_posicao_to_banners_table.php',
     'CategoriaTransacaoTableSeeder' => $baseDir . '/database/seeds/CategoriaTransacaoTableSeeder.php',
     'CreateAgendasTable' => $baseDir . '/database/migrations/2016_10_24_132856_create_agendas_table.php',

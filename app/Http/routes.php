@@ -27,6 +27,11 @@ Route::get('image/{path}/{tamanho}/{imagem}', [
 ######################################## SITE ###########################################
 
 Route::get('/', [
+    'as' => 'site.home.paginaconstrucao',
+    'uses' => 'Site\IndexController@paginaConstrucao'
+]);
+
+Route::get('index', [
     'as' => 'site.home.index',
     'uses' => 'Site\IndexController@index'
 ]);
@@ -40,6 +45,12 @@ Route::get('noticia/detalhe/{noticia?}', [
     'as' => 'site.noticia.detalhe',
     'uses' => 'Site\NoticiaController@detalhe'
 ]);
+
+Route::post('index/salvar/{emailnews?}', [
+    'as' => 'site.home.cadastronews',
+    'uses' => 'Site\IndexController@cadastroNews'
+]);
+
 
 #########################################################################################
 

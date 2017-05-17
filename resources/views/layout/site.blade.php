@@ -19,7 +19,7 @@
           href="http://fonts.googleapis.com/css?family=Hind%3A300%2C400%2C500%2C600%2C700%7CRaleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100italic%2C200italic%2C300italic%2C400italic%2C500italic%2C600italic%2C700italic%2C800italic%2C900italic"
           type="text/css" media="all">
 
-    <!-- CSS BEGINS 
+    <!-- CSS BEGINS
             ================================================== -->
     <!-- ELEMENTS BASE CSS -->
     <link href="/css/site/elements.min.css" rel="stylesheet" type="text/css"/>
@@ -27,8 +27,9 @@
     <link href="/css/site/style.css" rel="stylesheet" type="text/css"/>
     <!-- COLOR SCHEME -->
     <link href="/css/site/colors/color1.css" id="changeable-colors" rel="stylesheet"/>
-    <!-- CSS ENDS   
+    <!-- CSS ENDS
 		 	 ================================================== -->
+       @yield('styles')
 </head>
 
 <body>
@@ -151,7 +152,7 @@
                             <div class="inner-wrapper">
                                 <!-- EMAIL -->
                                 <p class="feature-description"><a class="" href="mailto:info@website.com"> -
-                                        info@fintheme.com</a></p>
+                                      {{ env('TESTE') }}</a></p>
                             </div>
                         </div>
                     </div>
@@ -277,7 +278,7 @@
 <script type="text/javascript" src="/js/jquery.easypiechart.min.js"></script>
 <script type="text/javascript" src="/js/count-to.js"></script>
 <script type="text/javascript" src="/js/custom.js"></script>
-
+@yield('scripts')
 </body>
 
 </html>

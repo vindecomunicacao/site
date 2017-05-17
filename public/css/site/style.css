@@ -1,13 +1,13 @@
 /*=======================THEME BASE STYLES ===============================
 ==================================================================*/
-/*									
-1. GLOBAL STYLES	
+/*
+1. GLOBAL STYLES
 	- Heading
 	- Typo Style
 	- Section style
 	- Border
 	- Link
-	- Space Adjustments	
+	- Space Adjustments
 		- Custom Height
 		- 4 Side margin
 		- 4 Side Margin
@@ -18,7 +18,7 @@
 		- Top & Bottom Padding
 		- Top & Bottom Margin
 	- Layout
-	- Navigation Menu 
+	- Navigation Menu
 		- Side Navigation Menu
 	- Title
 	- Button
@@ -28,15 +28,15 @@
 	- Bg image
 	- Icons
 	- List
-	
+
 2. SLIDER SECTION
 	- Owl Slider
 		- Owl Navigations
 		- Owl Paginations
 	- Text Slider
-3. MAIN SECTION	
+3. MAIN SECTION
 	- Special Features
-	- Features 
+	- Features
 	- Additional Features
 	- Progress
 	- Pie Chart
@@ -44,14 +44,14 @@
 	- Accordion
 	- TAB
 	- Pricing
-	- Form 
-4. SIDEBAR	
+	- Form
+4. SIDEBAR
 	- Widget
-	- Tags	
+	- Tags
 	- page
 5. Footer
 	- Copyright
-	- Dark Section	
+	- Dark Section
 6. TIMELINE
 
 7. Theme Responsive style
@@ -1051,7 +1051,7 @@ header .nav>li>a:hover {
 .dropdown-menu>li>a:hover {
     background: 0 0;
 	margin-left:5px;
-	
+
 }
 .mega-menu-wrapper .dropdown-menu,
 .mm-menu ul {
@@ -1880,7 +1880,7 @@ i.right-pad {
 .btn {
     z-index: 1;
     margin-top: 7px;
-    margin-bottom: 7px;
+/*  margin-bottom: 7px;*/
     padding: 8px 22px;
     border-width: 2px
 }
@@ -3529,7 +3529,7 @@ ul.square-list li:before {
 .list-style-1 .list-group-submenu a,
 .list-style-1 a:hover {
 	color:#FFFFFF;
-	
+
 }
 .list-style-1 .list-group-item:last-child {
     margin-bottom: 5px
@@ -4374,7 +4374,7 @@ ul.square-list li:before {
 .text-center img {
     display: inline-block!important
 }
-	
+
 .progress {
     overflow: visible
 }
@@ -4481,7 +4481,7 @@ ul.square-list li:before {
 .panel-group .panel+.panel {
     margin-top: 0
 }
-	
+
 .accordion-plus.panel-group .panel-title>a:after {
     font-family: FontAwesome;
     font-size: 14px;
@@ -4926,7 +4926,7 @@ ul.square-list li:before {
 .form-control,
 .form-control:focus {
     color: #333;
-    border-color: #e1e1e1
+    border-color: #B3B3B3
 }
 .form-control.typo-light:focus {
     color: #a5a4a4
@@ -5726,7 +5726,7 @@ address .icon-wrapper i.fa {
     color: #738493
 }
 .footer.dark-bg a,.footer.dark-bg p,.copyright  {
-    color: #98a9bb;
+    color: #261A4C;
 }
 .footer.dark-bg .a-active:hover {
     color: #aeadad!important
@@ -6750,7 +6750,7 @@ section.no-overflow {
 }
 }
 @media only screen and (max-width: 991px) {
-	
+
     .header-semi-dark,
     .header-semi-light,
     .header-top-semi-dark,
@@ -7050,7 +7050,7 @@ section.no-overflow {
         font-size: 35px!important;
         line-height: 43px!important
     }
-	
+
 }
 @media only screen and (min-width: 680px) {
 
@@ -7246,7 +7246,7 @@ section.no-overflow {
         bottom: 20px;
         right: 20px
     }
-	
+
 }
 @media only screen and (max-width: 340px) {
 	.post-date-wrap .post-date {
@@ -7272,7 +7272,7 @@ section.no-overflow {
     .btn.left-pad {
         margin-left: 0
     }
-	
+
 }
 
 /*
@@ -7318,7 +7318,7 @@ header {
 	font-weight:600;
 	padding-bottom:10px;
 	display:block;
-	
+
 }
 
 .test-section{
@@ -7429,7 +7429,7 @@ color:#fff;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(0, 0, 0, 0.12);
     margin: 0 auto;
     padding: 5px;
-   
+
 }
 .panel-heading::after{
 	background:#dfdfdf none repeat scroll 0 0;

@@ -24,7 +24,7 @@
                         <!-- CONTACT DETAILS -->
                         <div class="icon-box-text">
                             <h4 class="icon-box-title">1-234-345-6789</h4>
-                            <span class="icon-box-subtitle">contato@redevinde.com</span>
+                            <span class="icon-box-subtitle">{{ env('TESTE') }}</span>
                         </div>
                     </a>
                 </div>
