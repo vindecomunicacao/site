@@ -20,8 +20,14 @@ class UsuarioTableSeeder extends Seeder
             'grupo_usuario_id' => 1,
             'nome' => 'Denny Augustus',
             'email' => 'dennysaug@gmail.com',
-            'password' => bcrypt('root'),
-            'cpf' => '986.152.972-15'
+            'password' => bcrypt('root')
+        ]);
+        
+        Usuario::create([
+            'grupo_usuario_id' => 1,
+            'nome' => 'Luis Portugal',
+            'email' => 'luisenriquegomesportugal@gmail.com',
+            'password' => bcrypt('root')
         ]);
 
         Usuario::create([

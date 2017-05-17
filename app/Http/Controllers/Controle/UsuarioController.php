@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Controle;
 
+use App\Departamento;
 use App\GrupoUsuario;
 use App\Http\Requests\Controle\UsuarioRequest;
 use App\Usuario;
@@ -24,9 +25,10 @@ class UsuarioController extends Controller
     public function editar(Usuario $usuario = null)
     {
 
-        $data = ['grupos'];
+        $data = ['grupos', 'departamentos'];
 
         $grupos = GrupoUsuario::where('id', '<>', 1)->orderBy('id', 'asc')->get()->lists('nome','id')->toArray();
+        $departamentos = Departamento::orderBy('departamento')->get()->lists('departamento','id')->toArray();
 
         if (isset($usuario->id)) {
             $this->verificaPermissao('usuario.alterar');
@@ -44,7 +46,7 @@ class UsuarioController extends Controller
     public function salvar(UsuarioRequest $request, Usuario $usuario = null)
     {
         $input = $request->except('_token');
-        if($input['password']  <> $input['confirme']) {
+        if($input['password'] <> $input['confirme']) {
             unset($input['password']);
         }
 

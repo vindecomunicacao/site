@@ -29,4 +29,17 @@ class UsuarioRequest extends Request
             'email' => 'required|unique:usuarios',
         ];
     }
+    
+    public function getValidatorInstance()
+    {
+        $validator = parent::getValidatorInstance();
+        
+        $validator->setData(
+            array_filter($validator->getData(), function($val){
+                return !empty($val);
+            })
+        );
+        
+        return $validator;
+    }
 }
