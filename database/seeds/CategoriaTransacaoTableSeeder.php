@@ -29,7 +29,11 @@ class CategoriaTransacaoTableSeeder extends Seeder
             ['id' => 10, 'nome' => 'Noticia', 'ordem' => 0],
             ['id' => 11, 'nome' => 'Agenda', 'ordem' => 0], 
             ['id' => 13, 'nome' => 'Artigo', 'ordem' => 0], 
-            ['id' => 14, 'nome' => 'Cliente', 'ordem' => 0], ##NOVACATEGORIATRANSACAO##
+            ['id' => 14, 'nome' => 'Cliente', 'ordem' => 0], 
+            ['id' => 15, 'nome' => 'Podcast', 'ordem' => 0], 
+            ['id' => 16, 'nome' => 'PodcastMidia', 'ordem' => 0], 
+            ['id' => 17, 'nome' => 'PodcastCategoria', 'ordem' => 0], 
+            ['id' => 18, 'nome' => 'Midia', 'ordem' => 0], ##NOVACATEGORIATRANSACAO##
         ];
 
         foreach ($categorias as $categoria) {
