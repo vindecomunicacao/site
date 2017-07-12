@@ -13,7 +13,7 @@ class AddForeignKeyAutorToPodcastsTable extends Migration
     public function up()
     {
         Schema::table('podcasts', function (Blueprint $table) {
-            $table->foreign("autor")->references("id")->on("usuarios");
+            $table->foreign("autor_id")->references("id")->on("usuarios");
         });
     }
 
@@ -25,7 +25,7 @@ class AddForeignKeyAutorToPodcastsTable extends Migration
     public function down()
     {
         Schema::table('podcasts', function (Blueprint $table) {
-            $table->dropForeign("autor");
+            $table->dropForeign("autor_id");
         });
     }
 }

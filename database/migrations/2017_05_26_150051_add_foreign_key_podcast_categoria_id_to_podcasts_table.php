@@ -24,8 +24,5 @@ class AddForeignKeyPodcastCategoriaIdToPodcastsTable extends Migration
      */
     public function down()
     {
-        Schema::table('podcasts', function (Blueprint $table) {
-            $table->dropForeign("podcast_categoria_id");
-        });
     }
 }

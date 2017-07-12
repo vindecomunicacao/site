@@ -30,7 +30,6 @@ class AuthServiceProvider extends ServiceProvider
         try {
             $transacaos = Transacao::all()->lists('permissao', 'id')->toArray();
 
-
             if(isset($transacaos)) {
                 foreach ($transacaos as $transacao) {
                     $gate->define($transacao, function ($usuario) use ($transacao) {

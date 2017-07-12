@@ -27,7 +27,10 @@ class HomeController extends Controller
             return response('', 404);
         }
 
-        return response($file)->header('Content-Type', $mime)->header('Content-length', $length);
+        return response($file, 200, [
+            'Content-Type' => $mime,
+            'Content-length' => $length
+        ]);
     }
 
     public function index()

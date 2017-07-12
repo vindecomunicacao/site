@@ -420,68 +420,10 @@ Route::group(['prefix' => 'controle', 'middleware' => 'auth'], function() {
         'as' => 'controle.podcast.excluir',
         'uses' => 'Controle\PodcastController@excluir'
     ]);
-    ########################################################################################
-    ###################################### PODCASTMIDIA #########################################
-    Route::get('podcastmidia', [
-        'as' => 'controle.podcastmidia.index',
-        'uses' => 'Controle\PodcastMidiaController@index'
-    ]);
 
-    Route::get('podcastmidia/editar/{podcastmidia?}', [
-        'as' => 'controle.podcastmidia.edit',
-        'uses' => 'Controle\PodcastMidiaController@editar'
-    ]);
-
-    Route::post('podcastmidia/salvar/{podcastmidia?}', [
-        'as' => 'controle.podcastmidia.salvar',
-        'uses' => 'Controle\PodcastMidiaController@salvar'
-    ]);
-
-    Route::get('podcastmidia/excluir/{podcastmidia?}', [
-        'as' => 'controle.podcastmidia.excluir',
-        'uses' => 'Controle\PodcastMidiaController@excluir'
-    ]);
-    ########################################################################################
-    ###################################### PODCASTCATEGORIA #########################################
-    Route::get('podcastcategoria', [
-        'as' => 'controle.podcastcategoria.index',
-        'uses' => 'Controle\PodcastCategoriaController@index'
-    ]);
-
-    Route::get('podcastcategoria/editar/{podcastcategoria?}', [
-        'as' => 'controle.podcastcategoria.edit',
-        'uses' => 'Controle\PodcastCategoriaController@editar'
-    ]);
-
-    Route::post('podcastcategoria/salvar/{podcastcategoria?}', [
-        'as' => 'controle.podcastcategoria.salvar',
-        'uses' => 'Controle\PodcastCategoriaController@salvar'
-    ]);
-
-    Route::get('podcastcategoria/excluir/{podcastcategoria?}', [
-        'as' => 'controle.podcastcategoria.excluir',
-        'uses' => 'Controle\PodcastCategoriaController@excluir'
-    ]);
-    ########################################################################################
-    ###################################### MIDIA #########################################
-    Route::get('midia', [
-        'as' => 'controle.midia.index',
-        'uses' => 'Controle\MidiaController@index'
-    ]);
-
-    Route::get('midia/editar/{midia?}', [
-        'as' => 'controle.midia.edit',
-        'uses' => 'Controle\MidiaController@editar'
-    ]);
-
-    Route::post('midia/salvar/{midia?}', [
-        'as' => 'controle.midia.salvar',
-        'uses' => 'Controle\MidiaController@salvar'
-    ]);
-
-    Route::get('midia/excluir/{midia?}', [
-        'as' => 'controle.midia.excluir',
-        'uses' => 'Controle\MidiaController@excluir'
+    Route::get('podcast/rss', [
+        'as' => 'controle.podcast.rss',
+        'uses' => 'Controle\PodcastController@rss'
     ]);
     ########################################################################################
     ##NOVASROTAS##

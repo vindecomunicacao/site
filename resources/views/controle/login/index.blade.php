@@ -45,6 +45,20 @@
         <div id="wrapper">
             <div id="login" class="animate form">
                 <section class="login_content">
+                    @if ($errors->first())
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="alert alert-warning alert-white rounded">
+                                    <strong>Alerta!</strong>
+                                    <ul>
+                                        @foreach($errors->all() as $chave => $error)
+                                            <li>{{$error}}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                     {!! Form::open(['route' => 'controle.login.autenticar']) !!}
                         <h1>Área Restrita</h1>
                         <div>

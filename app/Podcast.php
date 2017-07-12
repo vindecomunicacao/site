@@ -3,16 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Podcast extends Model
 {
-    protected $fillable = ['*'];
+    use SoftDeletes;
+    protected $fillable = ['id', 'titulo', 'subtitulo', 'descricao', 'link', 'imagem', 'autor_id', 'tags', 'arquivo', 'direitos_autorais'];
 
-    public function midias(){
-        return $this->belongsToMany(Midia::class, PodcastMidia::class, 'podcasts_id', 'midias_id');
-    }
-    
-    public function categoria(){
-        return $this->belongsTo(PodcastCategoria::class, 'podcast_categoria_id', 'id');
+    public function autor(){
+        return $this->belongsTo(Usuario::class, 'autor_id');
     }
 }

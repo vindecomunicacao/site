@@ -17,12 +17,11 @@ class CreatePodcastsTable extends Migration
             $table->string('titulo');
             $table->string('subtitulo')->nullable();
             $table->text('descricao');
-            $table->string('link');
+            $table->string('link')->nullable();
             $table->string('imagem')->nullable();
-            $table->integer('autor')->unsigned();
+            $table->integer('autor_id')->unsigned();
             $table->integer('podcast_categoria_id')->unsigned();
-            $table->string('linguagem')->nullable();
-            $table->string('direitos_autorais')->nullable();
+            $table->string('direitos_autorais');
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class CreatePodcastCategoriasTable extends Migration
     {
         Schema::create('podcast_categorias', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('categoria');
+            $table->string('nome');
             $table->timestamps();
         });
     }
