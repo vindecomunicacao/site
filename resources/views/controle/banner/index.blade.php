@@ -20,6 +20,8 @@
                         <tr class="headings">
                             <th class="column-title">Imagem</th>
                             <th class="column-title">Nome</th>
+                            <th class="column-title">Texto</th>
+                            <th class="column-title">Posição</th>
                             <th class="column-title no-link last"><span class="nobr">Opções</span></th>
                         </tr>
                         </thead>
@@ -28,6 +30,8 @@
                             <tr class="even pointer">
                                 <td class=" "><img src="{{ route('image.render', ['banner','p',$banner->imagem]) }}" alt=""></td>
                                 <td class=" ">{{ $banner->nome }}</td>
+                                <td class=" ">{{ substr($banner->texto,0,60) }}</td>
+                                <td class=" ">{{ $banner->getPosicao }}</td>
                                 <td class=" last">
                                     @can('banner.alterar')
                                         <a href="{{ route('controle.banner.edit', $banner) }}" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>

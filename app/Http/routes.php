@@ -1,5 +1,6 @@
 <?php
 
+
 #RENDERIZA IMAGENS DO STORAGE
 
 
@@ -23,7 +24,35 @@ Route::get('image/{path}/{tamanho}/{imagem}', [
     return view('welcome');
 });*/
 
-Route::get('/', function() { return '<h1>HOME</h1>'; });
+######################################## SITE ###########################################
+
+Route::get('/', [
+    'as' => 'site.home.paginaconstrucao',
+    'uses' => 'Site\IndexController@paginaConstrucao'
+]);
+
+Route::get('index', [
+    'as' => 'site.home.index',
+    'uses' => 'Site\IndexController@index'
+]);
+
+Route::get('noticia', [
+    'as' => 'site.noticia.index',
+    'uses' => 'Site\NoticiaController@index'
+]);
+
+Route::get('noticia/detalhe/{noticia?}', [
+    'as' => 'site.noticia.detalhe',
+    'uses' => 'Site\NoticiaController@detalhe'
+]);
+
+Route::post('index/salvar/{emailnews?}', [
+    'as' => 'site.home.cadastronews',
+    'uses' => 'Site\IndexController@cadastroNews'
+]);
+
+
+#########################################################################################
 
 Route::get('auth/login', [
     'as' => 'controle.login.index',
@@ -264,6 +293,137 @@ Route::group(['prefix' => 'controle', 'middleware' => 'auth'], function() {
     Route::get('celula/excluir/{celula?}', [
         'as' => 'controle.celula.excluir',
         'uses' => 'Controle\CelulaController@excluir'
+    ]);
+    ########################################################################################
+    ###################################### REDE #########################################
+    Route::get('rede', [
+        'as' => 'controle.rede.index',
+        'uses' => 'Controle\RedeController@index'
+    ]);
+
+    Route::get('rede/editar/{rede?}', [
+        'as' => 'controle.rede.edit',
+        'uses' => 'Controle\RedeController@editar'
+    ]);
+
+    Route::post('rede/salvar/{rede?}', [
+        'as' => 'controle.rede.salvar',
+        'uses' => 'Controle\RedeController@salvar'
+    ]);
+
+    Route::get('rede/excluir/{rede?}', [
+        'as' => 'controle.rede.excluir',
+        'uses' => 'Controle\RedeController@excluir'
+    ]);
+    ########################################################################################
+    ###################################### CELULA #########################################
+    Route::get('celula', [
+        'as' => 'controle.celula.index',
+        'uses' => 'Controle\CelulaController@index'
+    ]);
+
+    Route::get('celula/editar/{celula?}', [
+        'as' => 'controle.celula.edit',
+        'uses' => 'Controle\CelulaController@editar'
+    ]);
+
+    Route::post('celula/salvar/{celula?}', [
+        'as' => 'controle.celula.salvar',
+        'uses' => 'Controle\CelulaController@salvar'
+    ]);
+
+    Route::get('celula/excluir/{celula?}', [
+        'as' => 'controle.celula.excluir',
+        'uses' => 'Controle\CelulaController@excluir'
+    ]);
+    ########################################################################################
+    ###################################### NOTICIA #########################################
+    Route::get('noticia', [
+        'as' => 'controle.noticia.index',
+        'uses' => 'Controle\NoticiaController@index'
+    ]);
+
+    Route::get('noticia/editar/{noticia?}', [
+        'as' => 'controle.noticia.edit',
+        'uses' => 'Controle\NoticiaController@editar'
+    ]);
+
+    Route::post('noticia/salvar/{noticia?}', [
+        'as' => 'controle.noticia.salvar',
+        'uses' => 'Controle\NoticiaController@salvar'
+    ]);
+
+    Route::get('noticia/excluir/{noticia?}', [
+        'as' => 'controle.noticia.excluir',
+        'uses' => 'Controle\NoticiaController@excluir'
+    ]);
+    ########################################################################################
+    ###################################### AGENDA #########################################
+    Route::get('agenda', [
+        'as' => 'controle.agenda.index',
+        'uses' => 'Controle\AgendaController@index'
+    ]);
+
+    Route::get('agenda/editar/{agenda?}', [
+        'as' => 'controle.agenda.edit',
+        'uses' => 'Controle\AgendaController@editar'
+    ]);
+
+    Route::post('agenda/salvar/{agenda?}', [
+        'as' => 'controle.agenda.salvar',
+        'uses' => 'Controle\AgendaController@salvar'
+    ]);
+
+    Route::get('agenda/excluir/{agenda?}', [
+        'as' => 'controle.agenda.excluir',
+        'uses' => 'Controle\AgendaController@excluir'
+    ]);
+    ########################################################################################
+    ###################################### ARTIGO #########################################
+    Route::get('artigo', [
+        'as' => 'controle.artigo.index',
+        'uses' => 'Controle\ArtigoController@index'
+    ]);
+
+    Route::get('artigo/editar/{artigo?}', [
+        'as' => 'controle.artigo.edit',
+        'uses' => 'Controle\ArtigoController@editar'
+    ]);
+
+    Route::post('artigo/salvar/{artigo?}', [
+        'as' => 'controle.artigo.salvar',
+        'uses' => 'Controle\ArtigoController@salvar'
+    ]);
+
+    Route::get('artigo/excluir/{artigo?}', [
+        'as' => 'controle.artigo.excluir',
+        'uses' => 'Controle\ArtigoController@excluir'
+    ]);
+    ########################################################################################
+    ###################################### PODCAST #########################################
+    Route::get('podcast', [
+        'as' => 'controle.podcast.index',
+        'uses' => 'Controle\PodcastController@index'
+    ]);
+
+    Route::get('podcast/editar/{podcast?}', [
+        'as' => 'controle.podcast.edit',
+        'uses' => 'Controle\PodcastController@editar'
+    ]);
+
+    Route::post('podcast/salvar/{podcast?}', [
+        'as' => 'controle.podcast.salvar',
+        'uses' => 'Controle\PodcastController@salvar'
+    ]);
+
+    Route::get('podcast/excluir/{podcast?}', [
+        'as' => 'controle.podcast.excluir',
+        'uses' => 'Controle\PodcastController@excluir'
+    ]);
+
+    Route::get('podcast/rss', [
+        'as' => 'controle.podcast.rss',
+        'uses' => 'Controle\PodcastController@rss'
     ]);
     ########################################################################################
     ##NOVASROTAS##

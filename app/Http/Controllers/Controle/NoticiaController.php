@@ -14,7 +14,7 @@ class NoticiaController extends Controller
     {
         $this->destino = [
             'caminho' => storage_path() . '/data/noticia/', ##criar pasta se tiver upload
-            'resolucao' => [0 => [150,100], 1 => [600,400], 2 => [980,840]],
+            'resolucao' => [0 => [150,150], 1 => [600,350], 2 => [900,500]],
         ];
     }
 
@@ -28,16 +28,16 @@ class NoticiaController extends Controller
 
     public function editar(Noticia $noticia = null)
     {
-        $data = ['noticia'];
+        $data = [];
 
         if (isset($noticia->id)) {
             $this->verificaPermissao('noticia.alterar');
-            array_push($data, 'noticia');
-        }
-        else
-        {
-            $this->verificaPermissao('noticia.cadastrar');
-        }
+        array_push($data, 'noticia');
+    }
+else
+{
+$this->verificaPermissao('noticia.cadastrar');
+}
 
         return view('controle.noticia.edit', compact($data));
     }
@@ -52,14 +52,14 @@ class NoticiaController extends Controller
         }
 
         if ($noticia->id) {
-            $this->verificaPermissao('noticia.alterar');
-            if ($noticia->update($input)) {
+        $this->verificaPermissao('noticia.alterar');
+        if ($noticia->update($input)) {
                 return redirect()->route('controle.noticia.index')->with('error', false);
-            }
+    }
 
         } else {
-            $this->verificaPermissao('noticia.cadastrar');
-            $noticia = Noticia::create($input);
+    $this->verificaPermissao('noticia.cadastrar');
+    $noticia = Noticia::create($input);
             return redirect()->route('controle.noticia.index')->with('error', false);
         }
 
@@ -70,16 +70,16 @@ class NoticiaController extends Controller
     }
 
     public function excluir(Noticia $noticia)
-    {
-        $this->verificaPermissao('noticia.excluir');
+{
+    $this->verificaPermissao('noticia.excluir');
 
-        if ($noticia and $noticia->delete()) {
-            $imagem = $noticia->imagem;
-            @unlink($this->destino['caminho'] . 'p/' . $imagem);
-            @unlink($this->destino['caminho'] . 'm/' . $imagem);
-            @unlink($this->destino['caminho'] . 'g/' . $imagem);
-            return redirect()->route('controle.noticia.index')->with('error', false);
-        }
+    if ($noticia and $noticia->delete()) {
+    $imagem = $noticia->imagem;
+    @unlink($this->destino['caminho'] . 'p/' . $imagem);
+    @unlink($this->destino['caminho'] . 'm/' . $imagem);
+    @unlink($this->destino['caminho'] . 'g/' . $imagem);
+    return redirect()->route('controle.noticia.index')->with('error', false);
+}
         return redirect()->route('controle.noticia.index')->with('error', true);
     }
 

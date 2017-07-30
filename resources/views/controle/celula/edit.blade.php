@@ -13,22 +13,17 @@
                     @include('includes.controle.validator')
                     <!-- start form for validation -->
                     {!! Form::model(isset($celula)?$celula:null, ['route' => ['controle.celula.salvar', (isset($celula)?$celula->id:null)], 'class' => 'form-horizontal form-label-left']) !!}
+
                     <div class="form-group">
-                        {!! Form::label('pastor', 'Pastor', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+                        {!! Form::label('rede', 'Rede', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::select('pastor_id', ['' => 'Selecione']+$pastores, null, ['class' => 'form-control col-md-7 col-xs-12', 'required']) !!}
+                            {!! Form::select('rede_id', ['' => 'Selecione']+$redes, null, ['class' => 'form-control col-md-7 col-xs-12', 'required']) !!}
                         </div>
                     </div>
                     <div class="form-group">
-                        {!! Form::label('supervisor', 'Supervisor', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+                        {!! Form::label('lider', 'Líder', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::select('supervisor_id', ['' => 'Selecione']+$supervisores, null, ['class' => 'form-control col-md-7 col-xs-12', 'required']) !!}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        {!! Form::label('discipulador', 'Discipulador', ['class' => 'control-label col-md-3 col-sm-3 col-xs-12']) !!}
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::select('discipulador_id', ['' => 'Selecione']+$discipuladores, null, ['class' => 'form-control col-md-7 col-xs-12', 'required']) !!}
+                            {!! Form::select('lider_id', ['' => 'Selecione']+$lideres, null, ['class' => 'form-control col-md-7 col-xs-12', 'required']) !!}
                         </div>
                     </div>
                     <div class="form-group">

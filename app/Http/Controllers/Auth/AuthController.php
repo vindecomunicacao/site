@@ -66,7 +66,9 @@ class AuthController extends Controller
 
             return redirect()->intended('controle');
         } else {
-            dd('login e senha errado', $input);
+            return redirect()
+                ->back()
+                ->withErrors(["Login e/ou senha invalidos."]);
         }
     }
 

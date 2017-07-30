@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -161,8 +161,8 @@ return [
         App\Providers\ControleServiceProvider::class, #adicionado
 
         Collective\Html\HtmlServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
-
+        Intervention\Image\ImageServiceProvider::class,
+        Torann\PodcastFeed\PodcastFeedServiceProvider::class,
 
     ],
 
@@ -212,8 +212,9 @@ return [
 
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
 
+        'PodcastFeed' => Torann\PodcastFeed\Facades\PodcastFeed::class,
     ],
 
 ];

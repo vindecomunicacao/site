@@ -14,12 +14,13 @@
 
                 <div class="x_content">
                     <p>Total de registros encontrados: {{ $celulas->count() }}</p>
-
+                    @if($celulas->count())
                     <table class="table table-striped responsive-utilities jambo_table bulk_action">
                         <thead>
                         <tr class="headings">
                             <th class="column-title">Nome</th>
-                            <th class="column-title">E-mail</th>
+                            <th class="column-title">Rede</th>
+                            <th class="column-title">Lider</th>
                             <th class="column-title no-link last"><span class="nobr">Opções</span></th>
                         </tr>
                         </thead>
@@ -27,7 +28,8 @@
                         @foreach($celulas as $celula)
                             <tr class="even pointer">
                                 <td class=" ">{{ $celula->nome }}</td>
-                                <td class=" ">{{ $celula->email }}</td>
+                                <td class=" ">{{ $celula->rede->nome }}</td>
+                                <td class=" ">{{ $celula->lider->nome }}</td>
                                 <td class=" last">
                                     @can('celula.alterar')
                                         <a href="{{ route('controle.celula.edit', $celula) }}" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
@@ -40,6 +42,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>

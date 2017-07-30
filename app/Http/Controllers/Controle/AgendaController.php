@@ -32,12 +32,12 @@ class AgendaController extends Controller
 
         if (isset($agenda->id)) {
             $this->verificaPermissao('agenda.alterar');
-            array_push($data, 'agenda');
-        }
-        else
-        {
-            $this->verificaPermissao('agenda.cadastrar');
-        }
+        array_push($data, 'agenda');
+    }
+else
+{
+$this->verificaPermissao('agenda.cadastrar');
+}
 
         return view('controle.agenda.edit', compact($data));
     }
@@ -45,9 +45,6 @@ class AgendaController extends Controller
     public function salvar(Request $request, Agenda $agenda = null)
     {
         $input = $request->except('_token');
-        $input['permanente'] = isset($input['permanente']) ? 1 : 0;
-//        $input['ativo'] = ($input['ativo']) ? 1 : 0;
-
 
         if($request->hasFile('imagem')) {
             $imagem = $request->file();
@@ -55,14 +52,14 @@ class AgendaController extends Controller
         }
 
         if ($agenda->id) {
-            $this->verificaPermissao('agenda.alterar');
-            if ($agenda->update($input)) {
+        $this->verificaPermissao('agenda.alterar');
+        if ($agenda->update($input)) {
                 return redirect()->route('controle.agenda.index')->with('error', false);
-            }
+    }
 
         } else {
-            $this->verificaPermissao('agenda.cadastrar');
-            $agenda = Agenda::create($input);
+    $this->verificaPermissao('agenda.cadastrar');
+    $agenda = Agenda::create($input);
             return redirect()->route('controle.agenda.index')->with('error', false);
         }
 
@@ -73,16 +70,16 @@ class AgendaController extends Controller
     }
 
     public function excluir(Agenda $agenda)
-    {
-        $this->verificaPermissao('agenda.excluir');
+{
+    $this->verificaPermissao('agenda.excluir');
 
-        if ($agenda and $agenda->delete()) {
-            $imagem = $agenda->imagem;
-            @unlink($this->destino['caminho'] . 'p/' . $imagem);
-            @unlink($this->destino['caminho'] . 'm/' . $imagem);
-            @unlink($this->destino['caminho'] . 'g/' . $imagem);
-            return redirect()->route('controle.agenda.index')->with('error', false);
-        }
+    if ($agenda and $agenda->delete()) {
+    $imagem = $agenda->imagem;
+    @unlink($this->destino['caminho'] . 'p/' . $imagem);
+    @unlink($this->destino['caminho'] . 'm/' . $imagem);
+    @unlink($this->destino['caminho'] . 'g/' . $imagem);
+    return redirect()->route('controle.agenda.index')->with('error', false);
+}
         return redirect()->route('controle.agenda.index')->with('error', true);
     }
 

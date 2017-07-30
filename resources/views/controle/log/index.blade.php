@@ -11,6 +11,7 @@
 
                 <div class="x_content">
 {{--                    <p>Total de registros encontrados: {{ $usuarios->count() }}</p>--}}
+
                     <table class="table table-striped responsive-utilities jambo_table bulk_action">
                         <thead>
                         <tr class="headings">

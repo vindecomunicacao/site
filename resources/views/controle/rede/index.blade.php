@@ -14,12 +14,14 @@
 
                 <div class="x_content">
                     <p>Total de registros encontrados: {{ $redes->count() }}</p>
-
+                    @if($redes->count())
                     <table class="table table-striped responsive-utilities jambo_table bulk_action">
                         <thead>
                         <tr class="headings">
                             <th class="column-title">Nome</th>
-                            <th class="column-title">E-mail</th>
+                            <th class="column-title">Discipulador</th>
+                            <th class="column-title">Supervisor</th>
+                            <th class="column-title">Pastor</th>
                             <th class="column-title no-link last"><span class="nobr">Opções</span></th>
                         </tr>
                         </thead>
@@ -27,7 +29,9 @@
                         @foreach($redes as $rede)
                             <tr class="even pointer">
                                 <td class=" ">{{ $rede->nome }}</td>
-                                <td class=" ">{{ $rede->email }}</td>
+                                <td class=" ">{{ $rede->discipulador->nome }}</td>
+                                <td class=" ">{{ $rede->supervisor->nome }}</td>
+                                <td class=" ">{{ $rede->pastor->nome }}</td>
                                 <td class=" last">
                                     @can('rede.alterar')
                                         <a href="{{ route('controle.rede.edit', $rede) }}" class="btn btn-default btn-xs"><i class="fa fa-pencil"></i></a>
@@ -40,6 +44,7 @@
                         @endforeach
                         </tbody>
                     </table>
+                    @endif
                 </div>
             </div>
         </div>

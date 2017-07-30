@@ -79,67 +79,133 @@ class TransacaoTableSeeder extends Seeder
             'permissao' => 'log.visualizar',
             'label' => 'Visualizar'
         ]);
-        #contato
-        Transacao::create([
-            'categoria_id' => 5,
-            'permissao' => 'contato.alterar',
-            'label' => 'Alterar'
-        ]);
-        Transacao::create([
-            'categoria_id' => 5,
-            'permissao' => 'contato.excluir',
-            'label' => 'Excluir'
-        ]);
 
-        # Galeria
+        # Cliente        
         Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'galeria.visualizar',
+            'categoria_id' => 14,
+            'permissao' => 'cliente.visualizar',
             'label' => 'Visualizar'
         ]);
+        
         Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'galeria.cadastrar',
+            'categoria_id' => 14,
+            'permissao' => 'cliente.cadastrar',
             'label' => 'Cadastrar'
         ]);
+        
         Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'galeria.alterar',
+            'categoria_id' => 14,
+            'permissao' => 'cliente.alterar',
             'label' => 'Alterar'
         ]);
+        
         Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'imagem.excluir',
-            'label' => 'Excluir Imagem'
-        ]);
-        Transacao::create([
-            'categoria_id' => 6,
-            'permissao' => 'galeria.excluir',
+            'categoria_id' => 14,
+            'permissao' => 'cliente.excluir',
             'label' => 'Excluir'
         ]);
-
-        # Banner 
+        # Podcast        
         Transacao::create([
-            'categoria_id' => 7,
-            'permissao' => 'banner.visualizar',
+            'categoria_id' => 15,
+            'permissao' => 'podcast.visualizar',
             'label' => 'Visualizar'
         ]);
+        
         Transacao::create([
-            'categoria_id' => 7,
-            'permissao' => 'banner.cadastrar',
+            'categoria_id' => 15,
+            'permissao' => 'podcast.cadastrar',
             'label' => 'Cadastrar'
         ]);
+        
         Transacao::create([
-            'categoria_id' => 7,
-            'permissao' => 'banner.alterar',
+            'categoria_id' => 15,
+            'permissao' => 'podcast.alterar',
             'label' => 'Alterar'
         ]);
+        
         Transacao::create([
-            'categoria_id' => 7,
-            'permissao' => 'banner.excluir',
+            'categoria_id' => 15,
+            'permissao' => 'podcast.excluir',
+            'label' => 'Excluir'
+        ]);
+        # PodcastMidia        
+        Transacao::create([
+            'categoria_id' => 16,
+            'permissao' => 'podcastmidia.visualizar',
+            'label' => 'Visualizar'
+        ]);
+        
+        Transacao::create([
+            'categoria_id' => 16,
+            'permissao' => 'podcastmidia.cadastrar',
+            'label' => 'Cadastrar'
+        ]);
+        
+        Transacao::create([
+            'categoria_id' => 16,
+            'permissao' => 'podcastmidia.alterar',
+            'label' => 'Alterar'
+        ]);
+        
+        Transacao::create([
+            'categoria_id' => 16,
+            'permissao' => 'podcastmidia.excluir',
+            'label' => 'Excluir'
+        ]);
+        # PodcastCategoria        
+        Transacao::create([
+            'categoria_id' => 17,
+            'permissao' => 'podcastcategoria.visualizar',
+            'label' => 'Visualizar'
+        ]);
+        
+        Transacao::create([
+            'categoria_id' => 17,
+            'permissao' => 'podcastcategoria.cadastrar',
+            'label' => 'Cadastrar'
+        ]);
+        
+        Transacao::create([
+            'categoria_id' => 17,
+            'permissao' => 'podcastcategoria.alterar',
+            'label' => 'Alterar'
+        ]);
+        
+        Transacao::create([
+            'categoria_id' => 17,
+            'permissao' => 'podcastcategoria.excluir',
+            'label' => 'Excluir'
+        ]);
+        # Midia        
+        Transacao::create([
+            'categoria_id' => 18,
+            'permissao' => 'midia.visualizar',
+            'label' => 'Visualizar'
+        ]);
+        
+        Transacao::create([
+            'categoria_id' => 18,
+            'permissao' => 'midia.cadastrar',
+            'label' => 'Cadastrar'
+        ]);
+        
+        Transacao::create([
+            'categoria_id' => 18,
+            'permissao' => 'midia.alterar',
+            'label' => 'Alterar'
+        ]);
+        
+        Transacao::create([
+            'categoria_id' => 18,
+            'permissao' => 'midia.excluir',
             'label' => 'Excluir'
         ]);
         ##NOVATRANSACAO##
+
+
+
+
+
 
         $transacoes = Transacao::select('id')->get()->lists('id')->toArray();
         GrupoUsuario::find(1)->permissao()->sync($transacoes);

@@ -13,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      $views = ['layout.site'];
+      view()->composer($views, function ($view) {
+          $teste = ['nome' => 'lil'];
+          $view->with('usuario', $teste);
+      });
     }
 
     /**

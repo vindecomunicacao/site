@@ -546,7 +546,7 @@ class Builder
         if (! $value instanceof Expression) {
             $this->addBinding($value, 'where');
         }
-
+        
         return $this;
     }
 

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Controle;
 
-use App\GrupoUsuario;
 use App\Http\Controllers\Controller;
 use App\Rede;
 use App\Upload;
@@ -30,12 +29,11 @@ class RedeController extends Controller
 
     public function editar(Rede $rede = null)
     {
-        $data = ['pastores', 'supervisores', 'discipuladores', 'lideres'];
+        $data = ['pastores', 'supervisores', 'discipuladores'];
 
         $pastores = Usuario::where('grupo_usuario_id', 2)->get()->lists('nome', 'id')->toArray();
         $supervisores = Usuario::where('grupo_usuario_id', 3)->get()->lists('nome', 'id')->toArray();
         $discipuladores = Usuario::where('grupo_usuario_id', 4)->get()->lists('nome', 'id')->toArray();
-        $lideres = Usuario::where('grupo_usuario_id', 5)->get()->lists('nome', 'id')->toArray();
 
         if (isset($rede->id)) {
             $this->verificaPermissao('rede.alterar');
